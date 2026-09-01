@@ -1,0 +1,35 @@
+# MONSTARX Telegram Access Server
+
+This is the backend foundation for time-limited access. It keeps Telegram credentials on the server, not inside the APK/HTML.
+
+## Setup
+1. Install Node.js 20+
+2. `npm install`
+3. Set environment variables:
+   - `TELEGRAM_BOT_TOKEN` = BotFather token
+   - `TELEGRAM_ADMIN_IDS` = comma-separated Telegram numeric IDs allowed to control access
+4. Run: `npm start`
+
+## Telegram commands
+- `/grant USER_ID 15m`
+- `/grant USER_ID 1h`
+- `/grant USER_ID 1d`
+- `/revoke USER_ID`
+- `/check USER_ID`
+
+## Important
+The current HTML password is only a prototype UI gate. For real APK security, the Android/WebView layer should obtain the user's Telegram identity and verify `/api/access/:userId` before opening the Home/Function Center. Do not put the Telegram bot token in the APK.
+
+
+### Added access durations
+- `15m` — 15 minutes
+- `1h` — 1 hour
+- `1d` — 1 day
+- `7d` — 7 days
+- `1mo` — 1 month (30 days)
+- `1y` — 1 year (365 days)
+
+Example:
+`/grant USER_ID 7d`
+`/grant USER_ID 1mo`
+`/grant USER_ID 1y`
