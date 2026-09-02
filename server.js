@@ -47,5 +47,5 @@ poll();
 app.listen(PORT,()=>console.log(`MONSTARX access server listening on :${PORT}`));
 
 
-# Added access durations: 7d, 1mo, 1y
+# // Added access durations: 7d, 1mo, 1y
 ACCESS_DURATIONS = {"7d": 7*24*60*60, "1mo": 30*24*60*60, "1y": 365*24*60*60}
